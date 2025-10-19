@@ -43,8 +43,10 @@ SECTIONS
 	/* Read-write data (uninitialized) and stack */
 	.bss BLOCK(4K) : ALIGN(4K)
 	{
+		__bss_start = .;
 		*(COMMON)
 		*(.bss)
+		__bss_end = .;
 	}
 
 	/* The compiler may produce other sections, by default it will put them in
